@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**getWorkflowsPaginated**](WorkflowsApi.md#getWorkflowsPaginated) | **GET** /rest/api/3/workflow/search | Get workflows paginated
 
 
-<a name="createWorkflow"></a>
-# **createWorkflow**
+
+## createWorkflow
+
 > WorkflowID createWorkflow(createWorkflowDetails)
 
 Create workflow
@@ -19,46 +20,48 @@ Create workflow
 Creates a workflow. Workflow transitions are created with the default system transition rules.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkflowsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.WorkflowsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
-    CreateWorkflowDetails createWorkflowDetails = new CreateWorkflowDetails(); // CreateWorkflowDetails | The workflow details.
-    try {
-      WorkflowID result = apiInstance.createWorkflow(createWorkflowDetails);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowsApi#createWorkflow");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
+        CreateWorkflowDetails createWorkflowDetails = new CreateWorkflowDetails(); // CreateWorkflowDetails | The workflow details.
+        try {
+            WorkflowID result = apiInstance.createWorkflow(createWorkflowDetails);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkflowsApi#createWorkflow");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -74,20 +77,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Returned if the workflow is created. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if one or more statuses is not found. |  -  |
+| **201** | Returned if the workflow is created. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if one or more statuses is not found. |  -  |
 
-<a name="deleteInactiveWorkflow"></a>
-# **deleteInactiveWorkflow**
+
+## deleteInactiveWorkflow
+
 > deleteInactiveWorkflow(entityId)
 
 Delete inactive workflow
@@ -95,45 +100,47 @@ Delete inactive workflow
 Deletes a workflow.  The workflow cannot be deleted if it is:   *  an active workflow.  *  a system workflow.  *  associated with any workflow scheme.  *  associated with any draft workflow scheme.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkflowsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.WorkflowsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
-    String entityId = "entityId_example"; // String | The entity ID of the workflow.
-    try {
-      apiInstance.deleteInactiveWorkflow(entityId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowsApi#deleteInactiveWorkflow");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
+        String entityId = "entityId_example"; // String | The entity ID of the workflow.
+        try {
+            apiInstance.deleteInactiveWorkflow(entityId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkflowsApi#deleteInactiveWorkflow");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -149,20 +156,22 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the workflow is deleted. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the workflow is not found. |  -  |
+| **204** | Returned if the workflow is deleted. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the workflow is not found. |  -  |
 
-<a name="getAllWorkflows"></a>
-# **getAllWorkflows**
+
+## getAllWorkflows
+
 > List&lt;DeprecatedWorkflow&gt; getAllWorkflows(workflowName)
 
 Get all workflows
@@ -170,46 +179,48 @@ Get all workflows
 Returns all workflows in Jira or a workflow. Deprecated, use [Get workflows paginated](#api-rest-api-3-workflow-search-get).  If the &#x60;workflowName&#x60; parameter is specified, the workflow is returned as an object (not in an array). Otherwise, an array of workflow objects is returned.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkflowsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.WorkflowsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
-    String workflowName = "workflowName_example"; // String | The name of the workflow to be returned. Only one workflow can be specified.
-    try {
-      List<DeprecatedWorkflow> result = apiInstance.getAllWorkflows(workflowName);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowsApi#getAllWorkflows");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
+        String workflowName = "workflowName_example"; // String | The name of the workflow to be returned. Only one workflow can be specified.
+        try {
+            List<DeprecatedWorkflow> result = apiInstance.getAllWorkflows(workflowName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkflowsApi#getAllWorkflows");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -225,17 +236,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the user does not have the necessary permission. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the user does not have the necessary permission. |  -  |
 
-<a name="getWorkflowsPaginated"></a>
-# **getWorkflowsPaginated**
+
+## getWorkflowsPaginated
+
 > PageBeanWorkflow getWorkflowsPaginated(startAt, maxResults, workflowName, expand)
 
 Get workflows paginated
@@ -243,49 +256,51 @@ Get workflows paginated
 Returns a [paginated](#pagination) list of published classic workflows. When workflow names are specified, details of those workflows are returned. Otherwise, all published classic workflows are returned.  This operation does not return next-gen workflows.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkflowsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.WorkflowsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 50; // Integer | The maximum number of items to return per page.
-    Set<String> workflowName = Arrays.asList(); // Set<String> | The name of a workflow to return.
-    String expand = "expand_example"; // String | Use [expand](#expansion) to include additional information in the response. This parameter accepts a comma-separated list. Expand options include:   *  `transitions` For each workflow, returns information about the transitions inside the workflow.  *  `transitions.rules` For each workflow transition, returns information about its rules. Transitions are included automatically if this expand is requested.  *  `statuses` For each workflow, returns information about the statuses inside the workflow.  *  `statuses.properties` For each workflow status, returns information about its properties. Statuses are included automatically if this expand is requested.  *  `default` For each workflow, returns information about whether this is the default workflow.
-    try {
-      PageBeanWorkflow result = apiInstance.getWorkflowsPaginated(startAt, maxResults, workflowName, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkflowsApi#getWorkflowsPaginated");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkflowsApi apiInstance = new WorkflowsApi(defaultClient);
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 50; // Integer | The maximum number of items to return per page.
+        Set<String> workflowName = Arrays.asList(); // Set<String> | The name of a workflow to return.
+        String expand = "expand_example"; // String | Use [expand](#expansion) to include additional information in the response. This parameter accepts a comma-separated list. Expand options include:   *  `transitions` For each workflow, returns information about the transitions inside the workflow.  *  `transitions.rules` For each workflow transition, returns information about its rules. Transitions are included automatically if this expand is requested.  *  `statuses` For each workflow, returns information about the statuses inside the workflow.  *  `statuses.properties` For each workflow status, returns information about its properties. Statuses are included automatically if this expand is requested.  *  `default` For each workflow, returns information about whether this is the default workflow.
+        try {
+            PageBeanWorkflow result = apiInstance.getWorkflowsPaginated(startAt, maxResults, workflowName, expand);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkflowsApi#getWorkflowsPaginated");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -304,13 +319,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
 

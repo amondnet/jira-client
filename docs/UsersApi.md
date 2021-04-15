@@ -19,8 +19,9 @@ Method | HTTP request | Description
 [**setUserColumns**](UsersApi.md#setUserColumns) | **PUT** /rest/api/3/user/columns | Set user default columns
 
 
-<a name="bulkGetUsers"></a>
-# **bulkGetUsers**
+
+## bulkGetUsers
+
 > PageBeanUser bulkGetUsers(accountId, startAt, maxResults, username, key)
 
 Bulk get users
@@ -28,50 +29,52 @@ Bulk get users
 Returns a [paginated](#pagination) list of the users specified by one or more account IDs.  **[Permissions](#permissions) required:** Permission to access Jira.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    List<String> accountId = Arrays.asList(); // List<String> | The account ID of a user. To specify multiple users, pass multiple `accountId` parameters. For example, `accountId=5b10a2844c20165700ede21g&accountId=5b10ac8d82e05b22cc7d4ef5`.
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 10; // Integer | The maximum number of items to return per page.
-    List<String> username = Arrays.asList(); // List<String> | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    List<String> key = Arrays.asList(); // List<String> | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    try {
-      PageBeanUser result = apiInstance.bulkGetUsers(accountId, startAt, maxResults, username, key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#bulkGetUsers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        List<String> accountId = Arrays.asList(); // List<String> | The account ID of a user. To specify multiple users, pass multiple `accountId` parameters. For example, `accountId=5b10a2844c20165700ede21g&accountId=5b10ac8d82e05b22cc7d4ef5`.
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 10; // Integer | The maximum number of items to return per page.
+        List<String> username = Arrays.asList(); // List<String> | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        List<String> key = Arrays.asList(); // List<String> | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        try {
+            PageBeanUser result = apiInstance.bulkGetUsers(accountId, startAt, maxResults, username, key);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#bulkGetUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -91,18 +94,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if &#x60;accountID&#x60; is missing. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if &#x60;accountID&#x60; is missing. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
 
-<a name="bulkGetUsersMigration"></a>
-# **bulkGetUsersMigration**
+
+## bulkGetUsersMigration
+
 > List&lt;UserMigrationBean&gt; bulkGetUsersMigration(startAt, maxResults, username, key)
 
 Get account IDs for users
@@ -110,49 +115,51 @@ Get account IDs for users
 Returns the account IDs for the users specified in the &#x60;key&#x60; or &#x60;username&#x60; parameters. Note that multiple &#x60;key&#x60; or &#x60;username&#x60; parameters can be specified.  **[Permissions](#permissions) required:** Permission to access Jira.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 10; // Integer | The maximum number of items to return per page.
-    List<String> username = Arrays.asList(); // List<String> | Username of a user. To specify multiple users, pass multiple copies of this parameter. For example, `username=fred&username=barney`. Required if `key` isn't provided. Cannot be provided if `key` is present.
-    List<String> key = Arrays.asList(); // List<String> | Key of a user. To specify multiple users, pass multiple copies of this parameter. For example, `key=fred&key=barney`. Required if `username` isn't provided. Cannot be provided if `username` is present.
-    try {
-      List<UserMigrationBean> result = apiInstance.bulkGetUsersMigration(startAt, maxResults, username, key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#bulkGetUsersMigration");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 10; // Integer | The maximum number of items to return per page.
+        List<String> username = Arrays.asList(); // List<String> | Username of a user. To specify multiple users, pass multiple copies of this parameter. For example, `username=fred&username=barney`. Required if `key` isn't provided. Cannot be provided if `key` is present.
+        List<String> key = Arrays.asList(); // List<String> | Key of a user. To specify multiple users, pass multiple copies of this parameter. For example, `key=fred&key=barney`. Required if `username` isn't provided. Cannot be provided if `username` is present.
+        try {
+            List<UserMigrationBean> result = apiInstance.bulkGetUsersMigration(startAt, maxResults, username, key);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#bulkGetUsersMigration");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -171,18 +178,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if &#x60;key&#x60; or &#x60;username&#x60; |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if &#x60;key&#x60; or &#x60;username&#x60; |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
 
-<a name="createUser"></a>
-# **createUser**
+
+## createUser
+
 > User createUser(requestBody)
 
 Create user
@@ -190,42 +199,44 @@ Create user
 Creates a user. This resource is retained for legacy compatibility. As soon as a more suitable alternative is available this resource will be deprecated.  If the user exists and has access to Jira, the operation returns a 201 status. If the user exists but does not have access to Jira, the operation returns a 400 status.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    Map<String, Object> requestBody = {"password":"abracadabra","emailAddress":"mia@atlassian.com","displayName":"Mia Krystof","name":""}; // Map<String, Object> | Details about the user to be created.
-    try {
-      User result = apiInstance.createUser(requestBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#createUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        Map<String, Object> requestBody = {"password":"abracadabra","emailAddress":"mia@atlassian.com","displayName":"Mia Krystof","name":""}; // Map<String, Object> | Details about the user to be created.
+        try {
+            User result = apiInstance.createUser(requestBody);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#createUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -241,19 +252,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Returned if the request is successful. |  -  |
-**400** | Returned if the request is invalid or the number of licensed users is exceeded. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
+| **201** | Returned if the request is successful. |  -  |
+| **400** | Returned if the request is invalid or the number of licensed users is exceeded. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
 
-<a name="getAllUsers"></a>
-# **getAllUsers**
+
+## getAllUsers
+
 > List&lt;User&gt; getAllUsers(startAt, maxResults)
 
 Get all users
@@ -261,47 +274,49 @@ Get all users
 Returns a list of all (active and inactive) users.  **[Permissions](#permissions) required:** *Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    Integer startAt = 0; // Integer | The index of the first item to return.
-    Integer maxResults = 50; // Integer | The maximum number of items to return.
-    try {
-      List<User> result = apiInstance.getAllUsers(startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getAllUsers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        Integer startAt = 0; // Integer | The index of the first item to return.
+        Integer maxResults = 50; // Integer | The maximum number of items to return.
+        try {
+            List<User> result = apiInstance.getAllUsers(startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getAllUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -318,19 +333,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if the request is invalid. |  -  |
-**403** | Returned if the user doesn&#39;t have the necessary permission. |  -  |
-**409** | Returned if the request takes longer than 10 seconds or is interrupted. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if the request is invalid. |  -  |
+| **403** | Returned if the user doesn&#39;t have the necessary permission. |  -  |
+| **409** | Returned if the request takes longer than 10 seconds or is interrupted. |  -  |
 
-<a name="getAllUsersDefault"></a>
-# **getAllUsersDefault**
+
+## getAllUsersDefault
+
 > List&lt;User&gt; getAllUsersDefault(startAt, maxResults)
 
 Get all users default
@@ -338,47 +355,49 @@ Get all users default
 Returns a list of all (active and inactive) users.  **[Permissions](#permissions) required:** *Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    Integer startAt = 0; // Integer | The index of the first item to return.
-    Integer maxResults = 50; // Integer | The maximum number of items to return.
-    try {
-      List<User> result = apiInstance.getAllUsersDefault(startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getAllUsersDefault");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        Integer startAt = 0; // Integer | The index of the first item to return.
+        Integer maxResults = 50; // Integer | The maximum number of items to return.
+        try {
+            List<User> result = apiInstance.getAllUsersDefault(startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getAllUsersDefault");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -395,19 +414,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if the request is invalid. |  -  |
-**403** | Returned if the user doesn&#39;t have the necessary permission. |  -  |
-**409** | Returned if the request takes longer than 10 seconds or is interrupted. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if the request is invalid. |  -  |
+| **403** | Returned if the user doesn&#39;t have the necessary permission. |  -  |
+| **409** | Returned if the request takes longer than 10 seconds or is interrupted. |  -  |
 
-<a name="getUser"></a>
-# **getUser**
+
+## getUser
+
 > User getUser(accountId, username, key, expand)
 
 Get user
@@ -415,49 +436,51 @@ Get user
 Returns a user.  **[Permissions](#permissions) required:** *Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*. Required.
-    String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide) for details.
-    String key = "key_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide) for details.
-    String expand = "expand_example"; // String | Use [expand](#expansion) to include additional information about users in the response. This parameter accepts a comma-separated list. Expand options include:   *  `groups` includes all groups and nested groups to which the user belongs.  *  `applicationRoles` includes details of all the applications to which the user has access.
-    try {
-      User result = apiInstance.getUser(accountId, username, key, expand);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*. Required.
+        String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide) for details.
+        String key = "key_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide) for details.
+        String expand = "expand_example"; // String | Use [expand](#expansion) to include additional information about users in the response. This parameter accepts a comma-separated list. Expand options include:   *  `groups` includes all groups and nested groups to which the user belongs.  *  `applicationRoles` includes details of all the applications to which the user has access.
+        try {
+            User result = apiInstance.getUser(accountId, username, key, expand);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -476,19 +499,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the calling user does not have the *Browse users and groups* global permission. |  -  |
-**404** | Returned if:   *  &#x60;accountId&#x60; is missing.  *  the user is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the calling user does not have the *Browse users and groups* global permission. |  -  |
+| **404** | Returned if:   *  &#x60;accountId&#x60; is missing.  *  the user is not found. |  -  |
 
-<a name="getUserDefaultColumns"></a>
-# **getUserDefaultColumns**
+
+## getUserDefaultColumns
+
 > List&lt;ColumnItem&gt; getUserDefaultColumns(accountId, username)
 
 Get user default columns
@@ -496,47 +521,49 @@ Get user default columns
 Returns the default [issue table columns](https://confluence.atlassian.com/x/XYdKLg) for the user. If &#x60;accountId&#x60; is not passed in the request, the calling user&#39;s details are returned.  **[Permissions](#permissions) required:**   *  *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLgl), to get the column details for any user.  *  Permission to access Jira, to get the calling user&#39;s column details.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
-    String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    try {
-      List<ColumnItem> result = apiInstance.getUserDefaultColumns(accountId, username);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getUserDefaultColumns");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
+        String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        try {
+            List<ColumnItem> result = apiInstance.getUserDefaultColumns(accountId, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUserDefaultColumns");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -553,19 +580,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission or is not accessing their user record. |  -  |
-**404** | Returned if the requested user is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission or is not accessing their user record. |  -  |
+| **404** | Returned if the requested user is not found. |  -  |
 
-<a name="getUserEmail"></a>
-# **getUserEmail**
+
+## getUserEmail
+
 > UnrestrictedUserEmail getUserEmail(accountId)
 
 Get user email
@@ -573,42 +602,44 @@ Get user email
 Returns a user&#39;s email address. This API is only available to apps approved by Atlassian, according to these [guidelines](https://community.developer.atlassian.com/t/guidelines-for-requesting-access-to-email-address/27603).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "accountId_example"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, `5b10ac8d82e05b22cc7d4ef5`.
-    try {
-      UnrestrictedUserEmail result = apiInstance.getUserEmail(accountId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getUserEmail");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "accountId_example"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, `5b10ac8d82e05b22cc7d4ef5`.
+        try {
+            UnrestrictedUserEmail result = apiInstance.getUserEmail(accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUserEmail");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -624,20 +655,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if the calling app is not approved to use this API. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing from the request (for example if a user is trying to access this API). |  -  |
-**404** | Returned if a user with the given &#x60;accountId&#x60; doesn&#39;t exist |  -  |
-**503** | Indicates the API is not currently enabled |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if the calling app is not approved to use this API. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing from the request (for example if a user is trying to access this API). |  -  |
+| **404** | Returned if a user with the given &#x60;accountId&#x60; doesn&#39;t exist |  -  |
+| **503** | Indicates the API is not currently enabled |  -  |
 
-<a name="getUserEmailBulk"></a>
-# **getUserEmailBulk**
+
+## getUserEmailBulk
+
 > UnrestrictedUserEmail getUserEmailBulk(accountId)
 
 Get user email bulk
@@ -645,42 +678,44 @@ Get user email bulk
 Returns a user&#39;s email address. This API is only available to apps approved by Atlassian, according to these [guidelines](https://community.developer.atlassian.com/t/guidelines-for-requesting-access-to-email-address/27603).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    List<String> accountId = Arrays.asList(); // List<String> | The account IDs of the users for which emails are required. An `accountId` is an identifier that uniquely identifies the user across all Atlassian products. For example, `5b10ac8d82e05b22cc7d4ef5`. Note, this should be treated as an opaque identifier (that is, do not assume any structure in the value).
-    try {
-      UnrestrictedUserEmail result = apiInstance.getUserEmailBulk(accountId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getUserEmailBulk");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        List<String> accountId = Arrays.asList(); // List<String> | The account IDs of the users for which emails are required. An `accountId` is an identifier that uniquely identifies the user across all Atlassian products. For example, `5b10ac8d82e05b22cc7d4ef5`. Note, this should be treated as an opaque identifier (that is, do not assume any structure in the value).
+        try {
+            UnrestrictedUserEmail result = apiInstance.getUserEmailBulk(accountId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUserEmailBulk");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -696,19 +731,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if the calling app is not approved to use this API. |  -  |
-**401** | Returned if the authentication credentials are incorrect, or missing from the request (for example if a user is trying to access this API). |  -  |
-**503** | Indicates the API is not currently enabled. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if the calling app is not approved to use this API. |  -  |
+| **401** | Returned if the authentication credentials are incorrect, or missing from the request (for example if a user is trying to access this API). |  -  |
+| **503** | Indicates the API is not currently enabled. |  -  |
 
-<a name="getUserGroups"></a>
-# **getUserGroups**
+
+## getUserGroups
+
 > List&lt;GroupName&gt; getUserGroups(accountId, username, key)
 
 Get user groups
@@ -716,48 +753,50 @@ Get user groups
 Returns the groups to which a user belongs.  **[Permissions](#permissions) required:** *Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
-    String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    String key = "key_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    try {
-      List<GroupName> result = apiInstance.getUserGroups(accountId, username, key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#getUserGroups");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
+        String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        String key = "key_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        try {
+            List<GroupName> result = apiInstance.getUserGroups(accountId, username, key);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUserGroups");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -775,19 +814,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the calling user does not have the *Browse users and groups* global permission. |  -  |
-**404** | Returned if:   *  &#x60;accountId&#x60; is missing.  *  the user is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the calling user does not have the *Browse users and groups* global permission. |  -  |
+| **404** | Returned if:   *  &#x60;accountId&#x60; is missing.  *  the user is not found. |  -  |
 
-<a name="removeUser"></a>
-# **removeUser**
+
+## removeUser
+
 > removeUser(accountId, username, key)
 
 Delete user
@@ -795,43 +836,45 @@ Delete user
 Deletes a user.  **[Permissions](#permissions) required:** Site administration (that is, membership of the *site-admin* [group](https://confluence.atlassian.com/x/24xjL)).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
-    String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    String key = "key_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    try {
-      apiInstance.removeUser(accountId, username, key);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#removeUser");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
+        String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        String key = "key_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        try {
+            apiInstance.removeUser(accountId, username, key);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#removeUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -849,20 +892,22 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the request is successful. |  -  |
-**400** | Returned if the user cannot be removed. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
-**404** | Returned if:   *  &#x60;accountId&#x60; is missing.  *  the user is not found. |  -  |
+| **204** | Returned if the request is successful. |  -  |
+| **400** | Returned if the user cannot be removed. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
+| **404** | Returned if:   *  &#x60;accountId&#x60; is missing.  *  the user is not found. |  -  |
 
-<a name="resetUserColumns"></a>
-# **resetUserColumns**
+
+## resetUserColumns
+
 > resetUserColumns(accountId, username)
 
 Reset user default columns
@@ -870,42 +915,44 @@ Reset user default columns
 Resets the default [ issue table columns](https://confluence.atlassian.com/x/XYdKLg) for the user to the system default. If &#x60;accountId&#x60; is not passed, the calling user&#39;s default columns are reset.  **[Permissions](#permissions) required:**   *  *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg), to set the columns on any user.  *  Permission to access Jira, to set the calling user&#39;s columns.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
-    String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
-    try {
-      apiInstance.resetUserColumns(accountId, username);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#resetUserColumns");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
+        String username = "username_example"; // String | This parameter is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.
+        try {
+            apiInstance.resetUserColumns(accountId, username);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#resetUserColumns");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -922,18 +969,20 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission or is not accessing their user record. |  -  |
+| **204** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission or is not accessing their user record. |  -  |
 
-<a name="setUserColumns"></a>
-# **setUserColumns**
+
+## setUserColumns
+
 > Object setUserColumns(accountId, requestBody)
 
 Set user default columns
@@ -941,43 +990,45 @@ Set user default columns
 Sets the default [ issue table columns](https://confluence.atlassian.com/x/XYdKLg) for the user. If an account ID is not passed, the calling user&#39;s default columns are set. If no column details are sent, then all default columns are removed.  The parameters for this resource are expressed as HTML form data. For example, in curl:  &#x60;curl -X PUT -d columns&#x3D;summary -d columns&#x3D;description https://your-domain.atlassian.net/rest/api/3/user/columns?accountId&#x3D;5b10ac8d82e05b22cc7d4ef5&#39;&#x60;  **[Permissions](#permissions) required:**   *  *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg), to set the columns on any user.  *  Permission to access Jira, to set the calling user&#39;s columns.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.UsersApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.UsersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    UsersApi apiInstance = new UsersApi(defaultClient);
-    String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
-    List<String> requestBody = Arrays.asList(); // List<String> | The ID of a column to set. To set multiple columns, send multiple `columns` parameters.
-    try {
-      Object result = apiInstance.setUserColumns(accountId, requestBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#setUserColumns");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String accountId = "5b10ac8d82e05b22cc7d4ef5"; // String | The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.
+        List<String> requestBody = Arrays.asList(); // List<String> | The ID of a column to set. To set multiple columns, send multiple `columns` parameters.
+        try {
+            Object result = apiInstance.setUserColumns(accountId, requestBody);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#setUserColumns");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -994,15 +1045,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission or is not accessing their user record. |  -  |
-**404** | Returned if the requested user is not found. |  -  |
-**500** | Returned if an invalid issue table column ID is sent. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission or is not accessing their user record. |  -  |
+| **404** | Returned if the requested user is not found. |  -  |
+| **500** | Returned if an invalid issue table column ID is sent. |  -  |
 

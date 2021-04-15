@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**getTask**](TasksApi.md#getTask) | **GET** /rest/api/3/task/{taskId} | Get task
 
 
-<a name="cancelTask"></a>
-# **cancelTask**
+
+## cancelTask
+
 > Object cancelTask(taskId)
 
 Cancel task
@@ -17,46 +18,48 @@ Cancel task
 Cancels a task.  **[Permissions](#permissions) required:** either of:   *  *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).  *  Creator of the task.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.TasksApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.TasksApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    TasksApi apiInstance = new TasksApi(defaultClient);
-    String taskId = "taskId_example"; // String | The ID of the task.
-    try {
-      Object result = apiInstance.cancelTask(taskId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TasksApi#cancelTask");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        TasksApi apiInstance = new TasksApi(defaultClient);
+        String taskId = "taskId_example"; // String | The ID of the task.
+        try {
+            Object result = apiInstance.cancelTask(taskId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TasksApi#cancelTask");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -72,20 +75,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Returned if the request is successful. |  -  |
-**400** | Returned if cancellation of the task is not possible. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
-**404** | Returned if the task is not found. |  -  |
+| **202** | Returned if the request is successful. |  -  |
+| **400** | Returned if cancellation of the task is not possible. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
+| **404** | Returned if the task is not found. |  -  |
 
-<a name="getTask"></a>
-# **getTask**
+
+## getTask
+
 > TaskProgressBeanObject getTask(taskId)
 
 Get task
@@ -93,46 +98,48 @@ Get task
 Returns the status of a [long-running asynchronous task](#async).  When a task has finished, this operation returns the JSON blob applicable to the task. See the documentation of the operation that created the task for details. Task details are not permanently retained. As of September 2019, details are retained for 14 days although this period may change without notice.  **[Permissions](#permissions) required:** either of:   *  *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).  *  Creator of the task.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.TasksApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.TasksApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    TasksApi apiInstance = new TasksApi(defaultClient);
-    String taskId = "taskId_example"; // String | The ID of the task.
-    try {
-      TaskProgressBeanObject result = apiInstance.getTask(taskId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TasksApi#getTask");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        TasksApi apiInstance = new TasksApi(defaultClient);
+        String taskId = "taskId_example"; // String | The ID of the task.
+        try {
+            TaskProgressBeanObject result = apiInstance.getTask(taskId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TasksApi#getTask");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -148,14 +155,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
-**404** | Returned if the task is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
+| **404** | Returned if the task is not found. |  -  |
 

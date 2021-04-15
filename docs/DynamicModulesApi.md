@@ -9,8 +9,9 @@ Method | HTTP request | Description
 [**dynamicModulesResourceRemoveModulesDelete**](DynamicModulesApi.md#dynamicModulesResourceRemoveModulesDelete) | **DELETE** /rest/atlassian-connect/1/app/module/dynamic | Remove modules
 
 
-<a name="dynamicModulesResourceGetModulesGet"></a>
-# **dynamicModulesResourceGetModulesGet**
+
+## dynamicModulesResourceGetModulesGet
+
 > ConnectModules dynamicModulesResourceGetModulesGet()
 
 Get modules
@@ -18,35 +19,37 @@ Get modules
 Returns all modules registered dynamically by the calling app.  **[Permissions](#permissions) required:** Only Connect apps can make this request.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DynamicModulesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.DynamicModulesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
 
-    DynamicModulesApi apiInstance = new DynamicModulesApi(defaultClient);
-    try {
-      ConnectModules result = apiInstance.dynamicModulesResourceGetModulesGet();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DynamicModulesApi#dynamicModulesResourceGetModulesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        DynamicModulesApi apiInstance = new DynamicModulesApi(defaultClient);
+        try {
+            ConnectModules result = apiInstance.dynamicModulesResourceGetModulesGet();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DynamicModulesApi#dynamicModulesResourceGetModulesGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -59,17 +62,19 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the call is not from a Connect app. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the call is not from a Connect app. |  -  |
 
-<a name="dynamicModulesResourceRegisterModulesPost"></a>
-# **dynamicModulesResourceRegisterModulesPost**
+
+## dynamicModulesResourceRegisterModulesPost
+
 > dynamicModulesResourceRegisterModulesPost(connectModules)
 
 Register modules
@@ -77,35 +82,37 @@ Register modules
 Registers a list of modules.  **[Permissions](#permissions) required:** Only Connect apps can make this request.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DynamicModulesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.DynamicModulesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
 
-    DynamicModulesApi apiInstance = new DynamicModulesApi(defaultClient);
-    ConnectModules connectModules = new ConnectModules(); // ConnectModules | 
-    try {
-      apiInstance.dynamicModulesResourceRegisterModulesPost(connectModules);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DynamicModulesApi#dynamicModulesResourceRegisterModulesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        DynamicModulesApi apiInstance = new DynamicModulesApi(defaultClient);
+        ConnectModules connectModules = new ConnectModules(); // ConnectModules | 
+        try {
+            apiInstance.dynamicModulesResourceRegisterModulesPost(connectModules);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DynamicModulesApi#dynamicModulesResourceRegisterModulesPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -121,18 +128,20 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if: * any of the provided modules is invalid. For example, required properties are missing. * any of the modules conflict with registered dynamic modules or modules defined in the app descriptor. For example, there are duplicate keys.  Details of the issues encountered are included in the error message. |  -  |
-**401** | Returned if the call is not from a Connect app. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if: * any of the provided modules is invalid. For example, required properties are missing. * any of the modules conflict with registered dynamic modules or modules defined in the app descriptor. For example, there are duplicate keys.  Details of the issues encountered are included in the error message. |  -  |
+| **401** | Returned if the call is not from a Connect app. |  -  |
 
-<a name="dynamicModulesResourceRemoveModulesDelete"></a>
-# **dynamicModulesResourceRemoveModulesDelete**
+
+## dynamicModulesResourceRemoveModulesDelete
+
 > dynamicModulesResourceRemoveModulesDelete(moduleKey)
 
 Remove modules
@@ -140,35 +149,37 @@ Remove modules
 Remove all or a list of modules registered by the calling app.  **[Permissions](#permissions) required:** Only Connect apps can make this request.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DynamicModulesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.DynamicModulesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
 
-    DynamicModulesApi apiInstance = new DynamicModulesApi(defaultClient);
-    List<String> moduleKey = Arrays.asList(); // List<String> | The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter. For example, `moduleKey=dynamic-attachment-entity-property&moduleKey=dynamic-select-field`. Nonexistent keys are ignored.
-    try {
-      apiInstance.dynamicModulesResourceRemoveModulesDelete(moduleKey);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DynamicModulesApi#dynamicModulesResourceRemoveModulesDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        DynamicModulesApi apiInstance = new DynamicModulesApi(defaultClient);
+        List<String> moduleKey = Arrays.asList(); // List<String> | The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter. For example, `moduleKey=dynamic-attachment-entity-property&moduleKey=dynamic-select-field`. Nonexistent keys are ignored.
+        try {
+            apiInstance.dynamicModulesResourceRemoveModulesDelete(moduleKey);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DynamicModulesApi#dynamicModulesResourceRemoveModulesDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -184,12 +195,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the request is successful. |  -  |
-**401** | Returned if the call is not from a Connect app. |  -  |
+| **204** | Returned if the request is successful. |  -  |
+| **401** | Returned if the call is not from a Connect app. |  -  |
 

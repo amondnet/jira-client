@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**updateProjectEmail**](ProjectEmailApi.md#updateProjectEmail) | **PUT** /rest/api/3/project/{projectId}/email | Set project&#39;s sender email
 
 
-<a name="getProjectEmail"></a>
-# **getProjectEmail**
+
+## getProjectEmail
+
 > ProjectEmailAddress getProjectEmail(projectId)
 
 Get project&#39;s sender email
@@ -17,46 +18,48 @@ Get project&#39;s sender email
 Returns the [project&#39;s sender email address](https://confluence.atlassian.com/x/dolKLg).  **[Permissions](#permissions) required:** *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectEmailApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.ProjectEmailApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    ProjectEmailApi apiInstance = new ProjectEmailApi(defaultClient);
-    Long projectId = 56L; // Long | The project ID.
-    try {
-      ProjectEmailAddress result = apiInstance.getProjectEmail(projectId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectEmailApi#getProjectEmail");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ProjectEmailApi apiInstance = new ProjectEmailApi(defaultClient);
+        Long projectId = 56L; // Long | The project ID.
+        try {
+            ProjectEmailAddress result = apiInstance.getProjectEmail(projectId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectEmailApi#getProjectEmail");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -72,19 +75,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have permission to read project. |  -  |
-**404** | Returned if the project or project&#39;s sender email address is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have permission to read project. |  -  |
+| **404** | Returned if the project or project&#39;s sender email address is not found. |  -  |
 
-<a name="updateProjectEmail"></a>
-# **updateProjectEmail**
+
+## updateProjectEmail
+
 > Object updateProjectEmail(projectId, projectEmailAddress)
 
 Set project&#39;s sender email
@@ -92,47 +97,49 @@ Set project&#39;s sender email
 Sets the [project&#39;s sender email address](https://confluence.atlassian.com/x/dolKLg).  If &#x60;emailAddress&#x60; is an empty string, the default email address is restored.  **[Permissions](#permissions) required:** *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectEmailApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.ProjectEmailApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    ProjectEmailApi apiInstance = new ProjectEmailApi(defaultClient);
-    Long projectId = 56L; // Long | The project ID.
-    ProjectEmailAddress projectEmailAddress = new ProjectEmailAddress(); // ProjectEmailAddress | The project's sender email address to be set.
-    try {
-      Object result = apiInstance.updateProjectEmail(projectId, projectEmailAddress);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectEmailApi#updateProjectEmail");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ProjectEmailApi apiInstance = new ProjectEmailApi(defaultClient);
+        Long projectId = 56L; // Long | The project ID.
+        ProjectEmailAddress projectEmailAddress = new ProjectEmailAddress(); // ProjectEmailAddress | The project's sender email address to be set.
+        try {
+            Object result = apiInstance.updateProjectEmail(projectId, projectEmailAddress);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectEmailApi#updateProjectEmail");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -149,15 +156,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the project&#39;s sender email address is successfully set. |  -  |
-**400** | Returned if the request is not valid, if the email address is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have permission to read project. |  -  |
-**404** | Returned if the project is not found. |  -  |
+| **204** | Returned if the project&#39;s sender email address is successfully set. |  -  |
+| **400** | Returned if the request is not valid, if the email address is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have permission to read project. |  -  |
+| **404** | Returned if the project is not found. |  -  |
 

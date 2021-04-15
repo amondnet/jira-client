@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**getPriority**](IssuePrioritiesApi.md#getPriority) | **GET** /rest/api/3/priority/{id} | Get priority
 
 
-<a name="getPriorities"></a>
-# **getPriorities**
+
+## getPriorities
+
 > List&lt;Priority&gt; getPriorities()
 
 Get priorities
@@ -17,45 +18,47 @@ Get priorities
 Returns the list of all issue priorities.  **[Permissions](#permissions) required:** Permission to access Jira.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssuePrioritiesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssuePrioritiesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssuePrioritiesApi apiInstance = new IssuePrioritiesApi(defaultClient);
-    try {
-      List<Priority> result = apiInstance.getPriorities();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssuePrioritiesApi#getPriorities");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssuePrioritiesApi apiInstance = new IssuePrioritiesApi(defaultClient);
+        try {
+            List<Priority> result = apiInstance.getPriorities();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssuePrioritiesApi#getPriorities");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -68,17 +71,19 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect. |  -  |
 
-<a name="getPriority"></a>
-# **getPriority**
+
+## getPriority
+
 > Priority getPriority(id)
 
 Get priority
@@ -86,46 +91,48 @@ Get priority
 Returns an issue priority.  **[Permissions](#permissions) required:** Permission to access Jira.
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssuePrioritiesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssuePrioritiesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssuePrioritiesApi apiInstance = new IssuePrioritiesApi(defaultClient);
-    String id = "id_example"; // String | The ID of the issue priority.
-    try {
-      Priority result = apiInstance.getPriority(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssuePrioritiesApi#getPriority");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssuePrioritiesApi apiInstance = new IssuePrioritiesApi(defaultClient);
+        String id = "id_example"; // String | The ID of the issue priority.
+        try {
+            Priority result = apiInstance.getPriority(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssuePrioritiesApi#getPriority");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -141,13 +148,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect. |  -  |
-**404** | Returned if the issue priority is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect. |  -  |
+| **404** | Returned if the issue priority is not found. |  -  |
 

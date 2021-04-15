@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**updateScreenScheme**](ScreenSchemesApi.md#updateScreenScheme) | **PUT** /rest/api/3/screenscheme/{screenSchemeId} | Update screen scheme
 
 
-<a name="createScreenScheme"></a>
-# **createScreenScheme**
+
+## createScreenScheme
+
 > ScreenSchemeId createScreenScheme(screenSchemeDetails)
 
 Create screen scheme
@@ -19,46 +20,48 @@ Create screen scheme
 Creates a screen scheme.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScreenSchemesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.ScreenSchemesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
-    ScreenSchemeDetails screenSchemeDetails = new ScreenSchemeDetails(); // ScreenSchemeDetails | 
-    try {
-      ScreenSchemeId result = apiInstance.createScreenScheme(screenSchemeDetails);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ScreenSchemesApi#createScreenScheme");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
+        ScreenSchemeDetails screenSchemeDetails = new ScreenSchemeDetails(); // ScreenSchemeDetails | 
+        try {
+            ScreenSchemeId result = apiInstance.createScreenScheme(screenSchemeDetails);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ScreenSchemesApi#createScreenScheme");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -74,20 +77,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Returned if the request is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if a screen used as one of the screen types in the screen scheme is not found. |  -  |
+| **201** | Returned if the request is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if a screen used as one of the screen types in the screen scheme is not found. |  -  |
 
-<a name="deleteScreenScheme"></a>
-# **deleteScreenScheme**
+
+## deleteScreenScheme
+
 > deleteScreenScheme(screenSchemeId)
 
 Delete screen scheme
@@ -95,45 +100,47 @@ Delete screen scheme
 Deletes a screen scheme. A screen scheme cannot be deleted if it is used in an issue type screen scheme.  Only screens schemes used in classic projects can be deleted.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScreenSchemesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.ScreenSchemesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
-    String screenSchemeId = "screenSchemeId_example"; // String | The ID of the screen scheme.
-    try {
-      apiInstance.deleteScreenScheme(screenSchemeId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ScreenSchemesApi#deleteScreenScheme");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
+        String screenSchemeId = "screenSchemeId_example"; // String | The ID of the screen scheme.
+        try {
+            apiInstance.deleteScreenScheme(screenSchemeId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ScreenSchemesApi#deleteScreenScheme");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -149,20 +156,22 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the screen scheme is deleted. |  -  |
-**400** | Returned if the screen scheme is used in an issue type screen scheme. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
-**404** | Returned if the screen scheme is not found. |  -  |
+| **204** | Returned if the screen scheme is deleted. |  -  |
+| **400** | Returned if the screen scheme is used in an issue type screen scheme. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
+| **404** | Returned if the screen scheme is not found. |  -  |
 
-<a name="getScreenSchemes"></a>
-# **getScreenSchemes**
+
+## getScreenSchemes
+
 > PageBeanScreenScheme getScreenSchemes(startAt, maxResults, id)
 
 Get screen schemes
@@ -170,48 +179,50 @@ Get screen schemes
 Returns a [paginated](#pagination) list of screen schemes.  Only screen schemes used in classic projects are returned.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScreenSchemesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.ScreenSchemesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 25; // Integer | The maximum number of items to return per page.
-    Set<Long> id = Arrays.asList(); // Set<Long> | The list of screen scheme IDs. To include multiple IDs, provide an ampersand-separated list. For example, `id=10000&id=10001`.
-    try {
-      PageBeanScreenScheme result = apiInstance.getScreenSchemes(startAt, maxResults, id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ScreenSchemesApi#getScreenSchemes");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 25; // Integer | The maximum number of items to return per page.
+        Set<Long> id = Arrays.asList(); // Set<Long> | The list of screen scheme IDs. To include multiple IDs, provide an ampersand-separated list. For example, `id=10000&id=10001`.
+        try {
+            PageBeanScreenScheme result = apiInstance.getScreenSchemes(startAt, maxResults, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ScreenSchemesApi#getScreenSchemes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -229,18 +240,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the necessary permission. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the necessary permission. |  -  |
 
-<a name="updateScreenScheme"></a>
-# **updateScreenScheme**
+
+## updateScreenScheme
+
 > Object updateScreenScheme(screenSchemeId, updateScreenSchemeDetails)
 
 Update screen scheme
@@ -248,47 +261,49 @@ Update screen scheme
 Updates a screen scheme. Only screen schemes used in classic projects can be updated.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ScreenSchemesApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.ScreenSchemesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
-    String screenSchemeId = "screenSchemeId_example"; // String | The ID of the screen scheme.
-    UpdateScreenSchemeDetails updateScreenSchemeDetails = new UpdateScreenSchemeDetails(); // UpdateScreenSchemeDetails | The screen scheme update details.
-    try {
-      Object result = apiInstance.updateScreenScheme(screenSchemeId, updateScreenSchemeDetails);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ScreenSchemesApi#updateScreenScheme");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ScreenSchemesApi apiInstance = new ScreenSchemesApi(defaultClient);
+        String screenSchemeId = "screenSchemeId_example"; // String | The ID of the screen scheme.
+        UpdateScreenSchemeDetails updateScreenSchemeDetails = new UpdateScreenSchemeDetails(); // UpdateScreenSchemeDetails | The screen scheme update details.
+        try {
+            Object result = apiInstance.updateScreenScheme(screenSchemeId, updateScreenSchemeDetails);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ScreenSchemesApi#updateScreenScheme");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -305,15 +320,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the request is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the screen scheme or a screen used as one of the screen types is not found. |  -  |
+| **204** | Returned if the request is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the screen scheme or a screen used as one of the screen types is not found. |  -  |
 

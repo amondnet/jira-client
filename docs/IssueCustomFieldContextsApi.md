@@ -19,8 +19,9 @@ Method | HTTP request | Description
 [**updateCustomFieldContext**](IssueCustomFieldContextsApi.md#updateCustomFieldContext) | **PUT** /rest/api/3/field/{fieldId}/context/{contextId} | Update custom field context
 
 
-<a name="addIssueTypesToContext"></a>
-# **addIssueTypesToContext**
+
+## addIssueTypesToContext
+
 > Object addIssueTypesToContext(fieldId, contextId, issueTypeIds)
 
 Add issue types to context
@@ -28,48 +29,50 @@ Add issue types to context
 Adds issue types to a custom field context, appending the issue types to the issue types list.  A custom field context without any issue types applies to all issue types. Adding issue types to such a custom field context would result in it applying to only the listed issue types.  If any of the issue types exists in the custom field context, the operation fails and no issue types are added.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Long contextId = 56L; // Long | The ID of the context.
-    IssueTypeIds issueTypeIds = new IssueTypeIds(); // IssueTypeIds | 
-    try {
-      Object result = apiInstance.addIssueTypesToContext(fieldId, contextId, issueTypeIds);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#addIssueTypesToContext");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Long contextId = 56L; // Long | The ID of the context.
+        IssueTypeIds issueTypeIds = new IssueTypeIds(); // IssueTypeIds | 
+        try {
+            Object result = apiInstance.addIssueTypesToContext(fieldId, contextId, issueTypeIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#addIssueTypesToContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -87,21 +90,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if operation is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field, context, or one or more issue types are not found. |  -  |
-**409** | Returned if the issue type is a sub-task, but sub-tasks are disabled in Jira settings. |  -  |
+| **204** | Returned if operation is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field, context, or one or more issue types are not found. |  -  |
+| **409** | Returned if the issue type is a sub-task, but sub-tasks are disabled in Jira settings. |  -  |
 
-<a name="assignProjectsToCustomFieldContext"></a>
-# **assignProjectsToCustomFieldContext**
+
+## assignProjectsToCustomFieldContext
+
 > Object assignProjectsToCustomFieldContext(fieldId, contextId, projectIds)
 
 Assign custom field context to projects
@@ -109,48 +114,50 @@ Assign custom field context to projects
 Assigns a custom field context to projects.  If any project in the request is assigned to any context of the custom field, the operation fails.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Long contextId = 56L; // Long | The ID of the context.
-    ProjectIds projectIds = new ProjectIds(); // ProjectIds | 
-    try {
-      Object result = apiInstance.assignProjectsToCustomFieldContext(fieldId, contextId, projectIds);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#assignProjectsToCustomFieldContext");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Long contextId = 56L; // Long | The ID of the context.
+        ProjectIds projectIds = new ProjectIds(); // ProjectIds | 
+        try {
+            Object result = apiInstance.assignProjectsToCustomFieldContext(fieldId, contextId, projectIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#assignProjectsToCustomFieldContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,20 +175,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if operation is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field, context, or project is not found. |  -  |
+| **204** | Returned if operation is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field, context, or project is not found. |  -  |
 
-<a name="createCustomFieldContext"></a>
-# **createCustomFieldContext**
+
+## createCustomFieldContext
+
 > CreateCustomFieldContext createCustomFieldContext(fieldId, createCustomFieldContext)
 
 Create custom field context
@@ -189,47 +198,49 @@ Create custom field context
 Creates a custom field context.  If &#x60;projectIds&#x60; is empty, a global context is created. A global context is one that applies to all project. If &#x60;issueTypeIds&#x60; is empty, the context applies to all issue types.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    CreateCustomFieldContext createCustomFieldContext = new CreateCustomFieldContext(); // CreateCustomFieldContext | 
-    try {
-      CreateCustomFieldContext result = apiInstance.createCustomFieldContext(fieldId, createCustomFieldContext);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#createCustomFieldContext");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        CreateCustomFieldContext createCustomFieldContext = new CreateCustomFieldContext(); // CreateCustomFieldContext | 
+        try {
+            CreateCustomFieldContext result = apiInstance.createCustomFieldContext(fieldId, createCustomFieldContext);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#createCustomFieldContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -246,20 +257,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Returned if the custom field context is created. |  -  |
-**400** | Returned if the request is invalid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**404** | Returned if the field, project, or issue type is not found. |  -  |
-**409** | Returned if the issue type is a sub-task, but sub-tasks are disabled in Jira settings. |  -  |
+| **201** | Returned if the custom field context is created. |  -  |
+| **400** | Returned if the request is invalid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **404** | Returned if the field, project, or issue type is not found. |  -  |
+| **409** | Returned if the issue type is a sub-task, but sub-tasks are disabled in Jira settings. |  -  |
 
-<a name="deleteCustomFieldContext"></a>
-# **deleteCustomFieldContext**
+
+## deleteCustomFieldContext
+
 > Object deleteCustomFieldContext(fieldId, contextId)
 
 Delete custom field context
@@ -267,47 +280,49 @@ Delete custom field context
 Deletes a [ custom field context](https://confluence.atlassian.com/adminjiracloud/what-are-custom-field-contexts-991923859.html).  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Long contextId = 56L; // Long | The ID of the context.
-    try {
-      Object result = apiInstance.deleteCustomFieldContext(fieldId, contextId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#deleteCustomFieldContext");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Long contextId = 56L; // Long | The ID of the context.
+        try {
+            Object result = apiInstance.deleteCustomFieldContext(fieldId, contextId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#deleteCustomFieldContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -324,20 +339,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the context is deleted. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field or the context is not found. |  -  |
+| **204** | Returned if the context is deleted. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field or the context is not found. |  -  |
 
-<a name="getContextsForField"></a>
-# **getContextsForField**
+
+## getContextsForField
+
 > PageBeanCustomFieldContext getContextsForField(fieldId, isAnyIssueType, isGlobalContext, contextId, startAt, maxResults)
 
 Get custom field contexts
@@ -345,51 +362,53 @@ Get custom field contexts
 Returns a [paginated](#pagination) list of [ contexts](https://confluence.atlassian.com/adminjiracloud/what-are-custom-field-contexts-991923859.html) for a custom field. Contexts can be returned as follows:   *  With no other parameters set, all contexts.  *  By defining &#x60;id&#x60; only, all contexts from the list of IDs.  *  By defining &#x60;isAnyIssueType&#x60;, limit the list of contexts returned to either those that apply to all issue types (true) or those that apply to only a subset of issue types (false)  *  By defining &#x60;isGlobalContext&#x60;, limit the list of contexts return to either those that apply to all projects (global contexts) (true) or those that apply to only a subset of projects (false).  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Boolean isAnyIssueType = true; // Boolean | Whether to return contexts that apply to all issue types.
-    Boolean isGlobalContext = true; // Boolean | Whether to return contexts that apply to all projects.
-    Set<Long> contextId = Arrays.asList(); // Set<Long> | The list of context IDs. To include multiple contexts, separate IDs with ampersand: `contextId=10000&contextId=10001`.
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 50; // Integer | The maximum number of items to return per page.
-    try {
-      PageBeanCustomFieldContext result = apiInstance.getContextsForField(fieldId, isAnyIssueType, isGlobalContext, contextId, startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#getContextsForField");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Boolean isAnyIssueType = true; // Boolean | Whether to return contexts that apply to all issue types.
+        Boolean isGlobalContext = true; // Boolean | Whether to return contexts that apply to all projects.
+        Set<Long> contextId = Arrays.asList(); // Set<Long> | The list of context IDs. To include multiple contexts, separate IDs with ampersand: `contextId=10000&contextId=10001`.
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 50; // Integer | The maximum number of items to return per page.
+        try {
+            PageBeanCustomFieldContext result = apiInstance.getContextsForField(fieldId, isAnyIssueType, isGlobalContext, contextId, startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#getContextsForField");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -410,19 +429,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field was not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field was not found. |  -  |
 
-<a name="getCustomFieldContextsForProjectsAndIssueTypes"></a>
-# **getCustomFieldContextsForProjectsAndIssueTypes**
+
+## getCustomFieldContextsForProjectsAndIssueTypes
+
 > PageBeanContextForProjectAndIssueType getCustomFieldContextsForProjectsAndIssueTypes(fieldId, projectIssueTypeMappings, startAt, maxResults)
 
 Get custom field contexts for projects and issue types
@@ -430,49 +451,51 @@ Get custom field contexts for projects and issue types
 Returns a [paginated](#pagination) list of project and issue type mappings and, for each mapping, the ID of a [custom field context](https://confluence.atlassian.com/x/k44fOw) that applies to the project and issue type.  If there is no custom field context assigned to the project then, if present, the custom field context that applies to all projects is returned if it also applies to the issue type or all issue types. If a custom field context is not found, the returned custom field context ID is &#x60;null&#x60;.  Duplicate project and issue type mappings cannot be provided in the request.  The order of the returned values is the same as provided in the request.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    ProjectIssueTypeMappings projectIssueTypeMappings = new ProjectIssueTypeMappings(); // ProjectIssueTypeMappings | The list of project and issue type mappings.
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 50; // Integer | The maximum number of items to return per page.
-    try {
-      PageBeanContextForProjectAndIssueType result = apiInstance.getCustomFieldContextsForProjectsAndIssueTypes(fieldId, projectIssueTypeMappings, startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#getCustomFieldContextsForProjectsAndIssueTypes");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        ProjectIssueTypeMappings projectIssueTypeMappings = new ProjectIssueTypeMappings(); // ProjectIssueTypeMappings | The list of project and issue type mappings.
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 50; // Integer | The maximum number of items to return per page.
+        try {
+            PageBeanContextForProjectAndIssueType result = apiInstance.getCustomFieldContextsForProjectsAndIssueTypes(fieldId, projectIssueTypeMappings, startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#getCustomFieldContextsForProjectsAndIssueTypes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -491,20 +514,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field, project, or issue type is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field, project, or issue type is not found. |  -  |
 
-<a name="getDefaultValues"></a>
-# **getDefaultValues**
+
+## getDefaultValues
+
 > PageBeanCustomFieldContextDefaultValue getDefaultValues(fieldId, contextId, startAt, maxResults)
 
 Get custom field contexts default values
@@ -512,49 +537,51 @@ Get custom field contexts default values
 Returns a [paginated](#pagination) list of defaults for a custom field. The results can be filtered by &#x60;contextId&#x60;, otherwise all values are returned. If no defaults are set for a context, nothing is returned.   The returned object depends on type of the custom field:   *  &#x60;CustomFieldContextDefaultValueSingleOption&#x60; (type &#x60;option.single&#x60;) for single choice select lists and radio buttons.  *  &#x60;CustomFieldContextDefaultValueMultipleOption&#x60; (type &#x60;option.multiple&#x60;) for multiple choice select lists and checkboxes.  *  &#x60;CustomFieldContextDefaultValueCascadingOption&#x60; (type &#x60;option.cascading&#x60;) for cascading select lists.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Set<Long> contextId = Arrays.asList(); // Set<Long> | The IDs of the contexts.
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 50; // Integer | The maximum number of items to return per page.
-    try {
-      PageBeanCustomFieldContextDefaultValue result = apiInstance.getDefaultValues(fieldId, contextId, startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#getDefaultValues");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Set<Long> contextId = Arrays.asList(); // Set<Long> | The IDs of the contexts.
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 50; // Integer | The maximum number of items to return per page.
+        try {
+            PageBeanCustomFieldContextDefaultValue result = apiInstance.getDefaultValues(fieldId, contextId, startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#getDefaultValues");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -573,19 +600,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field is not found. |  -  |
 
-<a name="getIssueTypeMappingsForContexts"></a>
-# **getIssueTypeMappingsForContexts**
+
+## getIssueTypeMappingsForContexts
+
 > PageBeanIssueTypeToContextMapping getIssueTypeMappingsForContexts(fieldId, contextId, startAt, maxResults)
 
 Get issue types for custom field context
@@ -593,49 +622,51 @@ Get issue types for custom field context
 Returns a [paginated](#pagination) list of context to issue type mappings for a custom field. Mappings are returned for all contexts or a list of contexts. Mappings are ordered first by context ID and then by issue type ID.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    List<Long> contextId = Arrays.asList(); // List<Long> | The ID of the context. To include multiple contexts, provide an ampersand-separated list. For example, `contextId=10001&contextId=10002`.
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 50; // Integer | The maximum number of items to return per page.
-    try {
-      PageBeanIssueTypeToContextMapping result = apiInstance.getIssueTypeMappingsForContexts(fieldId, contextId, startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#getIssueTypeMappingsForContexts");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        List<Long> contextId = Arrays.asList(); // List<Long> | The ID of the context. To include multiple contexts, provide an ampersand-separated list. For example, `contextId=10001&contextId=10002`.
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 50; // Integer | The maximum number of items to return per page.
+        try {
+            PageBeanIssueTypeToContextMapping result = apiInstance.getIssueTypeMappingsForContexts(fieldId, contextId, startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#getIssueTypeMappingsForContexts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -654,18 +685,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if operation is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
+| **200** | Returned if operation is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
 
-<a name="getProjectContextMapping"></a>
-# **getProjectContextMapping**
+
+## getProjectContextMapping
+
 > PageBeanCustomFieldContextProjectMapping getProjectContextMapping(fieldId, contextId, startAt, maxResults)
 
 Get project mappings for custom field context
@@ -673,49 +706,51 @@ Get project mappings for custom field context
 Returns a [paginated](#pagination) list of context to project mappings for a custom field. The result can be filtered by &#x60;contextId&#x60;, or otherwise all mappings are returned. Invalid IDs are ignored.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Set<Long> contextId = Arrays.asList(); // Set<Long> | The list of context IDs. To include multiple context, separate IDs with ampersand: `contextId=10000&contextId=10001`.
-    Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
-    Integer maxResults = 50; // Integer | The maximum number of items to return per page.
-    try {
-      PageBeanCustomFieldContextProjectMapping result = apiInstance.getProjectContextMapping(fieldId, contextId, startAt, maxResults);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#getProjectContextMapping");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Set<Long> contextId = Arrays.asList(); // Set<Long> | The list of context IDs. To include multiple context, separate IDs with ampersand: `contextId=10000&contextId=10001`.
+        Long startAt = 0L; // Long | The index of the first item to return in a page of results (page offset).
+        Integer maxResults = 50; // Integer | The maximum number of items to return per page.
+        try {
+            PageBeanCustomFieldContextProjectMapping result = apiInstance.getProjectContextMapping(fieldId, contextId, startAt, maxResults);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#getProjectContextMapping");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -734,19 +769,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returned if the request is successful. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field is not found. |  -  |
+| **200** | Returned if the request is successful. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field is not found. |  -  |
 
-<a name="removeCustomFieldContextFromProjects"></a>
-# **removeCustomFieldContextFromProjects**
+
+## removeCustomFieldContextFromProjects
+
 > Object removeCustomFieldContextFromProjects(fieldId, contextId, projectIds)
 
 Remove custom field context from projects
@@ -754,48 +791,50 @@ Remove custom field context from projects
 Removes a custom field context from projects.  A custom field context without any projects applies to all projects. Removing all projects from a custom field context would result in it applying to all projects.  If any project in the request is not assigned to the context, or the operation would result in two global contexts for the field, the operation fails.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Long contextId = 56L; // Long | The ID of the context.
-    ProjectIds projectIds = new ProjectIds(); // ProjectIds | 
-    try {
-      Object result = apiInstance.removeCustomFieldContextFromProjects(fieldId, contextId, projectIds);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#removeCustomFieldContextFromProjects");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Long contextId = 56L; // Long | The ID of the context.
+        ProjectIds projectIds = new ProjectIds(); // ProjectIds | 
+        try {
+            Object result = apiInstance.removeCustomFieldContextFromProjects(fieldId, contextId, projectIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#removeCustomFieldContextFromProjects");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -813,20 +852,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the custom field context is removed from the projects. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field, context, or one or more projects are not found. |  -  |
+| **204** | Returned if the custom field context is removed from the projects. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field, context, or one or more projects are not found. |  -  |
 
-<a name="removeIssueTypesFromContext"></a>
-# **removeIssueTypesFromContext**
+
+## removeIssueTypesFromContext
+
 > Object removeIssueTypesFromContext(fieldId, contextId, issueTypeIds)
 
 Remove issue types from context
@@ -834,48 +875,50 @@ Remove issue types from context
 Removes issue types from a custom field context.  A custom field context without any issue types applies to all issue types.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Long contextId = 56L; // Long | The ID of the context.
-    IssueTypeIds issueTypeIds = new IssueTypeIds(); // IssueTypeIds | 
-    try {
-      Object result = apiInstance.removeIssueTypesFromContext(fieldId, contextId, issueTypeIds);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#removeIssueTypesFromContext");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Long contextId = 56L; // Long | The ID of the context.
+        IssueTypeIds issueTypeIds = new IssueTypeIds(); // IssueTypeIds | 
+        try {
+            Object result = apiInstance.removeIssueTypesFromContext(fieldId, contextId, issueTypeIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#removeIssueTypesFromContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -893,20 +936,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if operation is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field, context, or one or more issue types are not found. |  -  |
+| **204** | Returned if operation is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field, context, or one or more issue types are not found. |  -  |
 
-<a name="setDefaultValues"></a>
-# **setDefaultValues**
+
+## setDefaultValues
+
 > Object setDefaultValues(fieldId, customFieldContextDefaultValueUpdate)
 
 Set custom field contexts default values
@@ -914,47 +959,49 @@ Set custom field contexts default values
 Sets default for contexts of a custom field. Default are defined using these objects:   *  &#x60;CustomFieldContextDefaultValueSingleOption&#x60; (type &#x60;option.single&#x60;) for single choice select lists and radio buttons.  *  &#x60;CustomFieldContextDefaultValueMultipleOption&#x60; (type &#x60;option.multiple&#x60;) for multiple choice select lists and checkboxes.  *  &#x60;CustomFieldContextDefaultValueCascadingOption&#x60; (type &#x60;option.cascading&#x60;) for cascading select lists.  Only one type of default object can be included in a request. To remove a default for a context, set the default parameter to &#x60;null&#x60;.  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    CustomFieldContextDefaultValueUpdate customFieldContextDefaultValueUpdate = new CustomFieldContextDefaultValueUpdate(); // CustomFieldContextDefaultValueUpdate | 
-    try {
-      Object result = apiInstance.setDefaultValues(fieldId, customFieldContextDefaultValueUpdate);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#setDefaultValues");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        CustomFieldContextDefaultValueUpdate customFieldContextDefaultValueUpdate = new CustomFieldContextDefaultValueUpdate(); // CustomFieldContextDefaultValueUpdate | 
+        try {
+            Object result = apiInstance.setDefaultValues(fieldId, customFieldContextDefaultValueUpdate);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#setDefaultValues");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -971,20 +1018,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if operation is successful. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field, a context, an option, or a cascading option is not found. |  -  |
+| **204** | Returned if operation is successful. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field, a context, an option, or a cascading option is not found. |  -  |
 
-<a name="updateCustomFieldContext"></a>
-# **updateCustomFieldContext**
+
+## updateCustomFieldContext
+
 > Object updateCustomFieldContext(fieldId, contextId, customFieldContextUpdateDetails)
 
 Update custom field context
@@ -992,48 +1041,50 @@ Update custom field context
 Updates a [ custom field context](https://confluence.atlassian.com/adminjiracloud/what-are-custom-field-contexts-991923859.html).  **[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).
 
 ### Example
+
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IssueCustomFieldContextsApi;
+import com.atlassian.jira.rest.client.ApiClient;
+import com.atlassian.jira.rest.client.ApiException;
+import com.atlassian.jira.rest.client.Configuration;
+import com.atlassian.jira.rest.client.auth.*;
+import com.atlassian.jira.rest.client.models.*;
+import com.atlassian.jira.rest.client.api.IssueCustomFieldContextsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://your-domain.atlassian.com");
-    
-    // Configure OAuth2 access token for authorization: OAuth2
-    OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-    OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://your-domain.atlassian.com");
+        
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-    IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
-    String fieldId = "fieldId_example"; // String | The ID of the custom field.
-    Long contextId = 56L; // Long | The ID of the context.
-    CustomFieldContextUpdateDetails customFieldContextUpdateDetails = new CustomFieldContextUpdateDetails(); // CustomFieldContextUpdateDetails | 
-    try {
-      Object result = apiInstance.updateCustomFieldContext(fieldId, contextId, customFieldContextUpdateDetails);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IssueCustomFieldContextsApi#updateCustomFieldContext");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IssueCustomFieldContextsApi apiInstance = new IssueCustomFieldContextsApi(defaultClient);
+        String fieldId = "fieldId_example"; // String | The ID of the custom field.
+        Long contextId = 56L; // Long | The ID of the context.
+        CustomFieldContextUpdateDetails customFieldContextUpdateDetails = new CustomFieldContextUpdateDetails(); // CustomFieldContextUpdateDetails | 
+        try {
+            Object result = apiInstance.updateCustomFieldContext(fieldId, contextId, customFieldContextUpdateDetails);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IssueCustomFieldContextsApi#updateCustomFieldContext");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1051,15 +1102,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Returned if the context is updated. |  -  |
-**400** | Returned if the request is not valid. |  -  |
-**401** | Returned if the authentication credentials are incorrect or missing. |  -  |
-**403** | Returned if the user does not have the required permissions. |  -  |
-**404** | Returned if the custom field or the context is not found. |  -  |
+| **204** | Returned if the context is updated. |  -  |
+| **400** | Returned if the request is not valid. |  -  |
+| **401** | Returned if the authentication credentials are incorrect or missing. |  -  |
+| **403** | Returned if the user does not have the required permissions. |  -  |
+| **404** | Returned if the custom field or the context is not found. |  -  |
 
